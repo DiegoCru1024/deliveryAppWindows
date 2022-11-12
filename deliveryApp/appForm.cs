@@ -136,7 +136,7 @@ namespace deliveryApp
                 newPanel.Controls.Add(newImage);
                 newImage.Dock = DockStyle.Top;
                 newImage.BackgroundImage = imageArray[randomItem];
-                newImage.BackgroundImageLayout = ImageLayout.Zoom;
+                newImage.BackgroundImageLayout = ImageLayout.Stretch;
                 newImage.Height = 350;
                 newImage.Width = 350;
 
@@ -144,6 +144,12 @@ namespace deliveryApp
                 itemsContainer.Controls.Add(newPanel);
                 codigo++;
             }
+        }
+
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
