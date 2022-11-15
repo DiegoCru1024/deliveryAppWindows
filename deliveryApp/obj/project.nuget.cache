@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "OZopwakDYZs7KCxZmgMxi6bGaRiEwqwNGoCdT44ZaKienJcNWv5LPhGzoYOA73E29wVmAREKqk+1Y0tdr5S9eA==",
+  "dgSpecHash": "93AlRFF9u2VfOW0P0jUwM021ZeVoUXqUJX65hTx0utg0SKsUsJEbubfPcGKjTiLf79GoxFSEovRlh4TGnOsJMg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Diego\\Desktop\\deliveryApp\\deliveryApp\\deliveryApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Diego\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
