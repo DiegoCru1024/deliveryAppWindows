@@ -18,17 +18,13 @@ namespace deliveryApp
     {
         string loginApiURL = "https://6371572b07858778617b1464.mockapi.io/deliveryAPI/deliveryLoginAccess";
         List<loadLoginApi> loginList = new List<loadLoginApi>();
+        loadLoginApi userData;
 
         public loginForm()
         {
             InitializeComponent();
             deserializeAPI();
             formatLogin();
-        }
-
-        private void loginForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         public async void deserializeAPI()
@@ -41,8 +37,8 @@ namespace deliveryApp
         {
             HttpClient myClient = new HttpClient(new HttpClientHandler() { UseDefaultCredentials = true });
             HttpResponseMessage response = await myClient.GetAsync(loginApiURL);
-            string loginResponse = await response.Content.ReadAsStringAsync();
-            return loginResponse;
+            string stringResponse = await response.Content.ReadAsStringAsync();
+            return stringResponse;
         }
 
         private void btn_exit_Click(object sender, EventArgs e)
@@ -52,36 +48,37 @@ namespace deliveryApp
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            string formPass, formUserName;
-            string apiPass, apiUserName;
+            string formPass, formUser;
+            string apiPass, apiUser;
 
-            formUserName = txt_user.Text;
+            formUser = txt_user.Text;
             formPass = txt_pass.Text;
 
-            apiUserName = string.Empty;
+            apiUser = string.Empty;
             apiPass = string.Empty;
 
             foreach (loadLoginApi login in loginList)
             {
-                if (formUserName.ToLower().Equals(login.username.ToLower()))
+                if (formUser.ToLower().Equals(login.username.ToLower()))
                 {
-                    apiUserName= login.username;
+                    apiUser = login.username;
                     apiPass = login.password;
+                    userData = login;
                     break;
                 }
                 else
                 {
                     apiPass = string.Empty;
-                    apiUserName = string.Empty;
+                    apiUser = string.Empty;
                 }
             }
 
-            if (apiUserName != string.Empty)
+            if (apiUser != string.Empty)
             {
                 if (apiPass.Equals(formPass))
                 {
                     this.Visible = false;
-                    appForm newForm = new appForm(apiUserName);
+                    appForm newForm = new appForm(userData);
                     newForm.Visible = true;
                 }
                 else
@@ -93,11 +90,6 @@ namespace deliveryApp
             {
                 MessageBox.Show("El usuario no esta registrado...", "Error");
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void formatLogin()

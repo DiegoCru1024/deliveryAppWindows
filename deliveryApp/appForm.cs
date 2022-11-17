@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Configuration;
 using System.Linq;
 using System.Net;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,18 +21,19 @@ namespace deliveryApp
         string itemApiURL = "https://6371572b07858778617b1464.mockapi.io/deliveryAPI/itemList";
         List<loadItemAPI> itemList = new List<loadItemAPI>();
         List<loadItemAPI> filteredItemList = new List<loadItemAPI>();
+        loadLoginApi userData;
 
-        public appForm(string userName)
+        public appForm(loadLoginApi receivedData)
         {
             InitializeComponent();
             deserializeAPI();
             formatWindow();
-            loadedUserName = userName.ToUpper();
+            userData = receivedData;
         }
 
         private void appForm_Load(object sender, EventArgs e)
         {
-            lbl_welcome.Text = $"Bienvenido {loadedUserName}!";
+            lbl_welcome.Text = $"Bienvenido {userData.firstName}!";
         }
 
         public async void deserializeAPI()
@@ -65,6 +68,11 @@ namespace deliveryApp
             IntPtr Hicon = myBitmap.GetHicon();
             Icon newIcon = Icon.FromHandle(Hicon);
             this.Icon = newIcon;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
