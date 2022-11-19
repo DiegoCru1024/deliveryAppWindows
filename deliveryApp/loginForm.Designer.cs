@@ -162,6 +162,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "loginForm";
             this.Text = "Delivery App | Login";
+            this.Load += new System.EventHandler(this.loginForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

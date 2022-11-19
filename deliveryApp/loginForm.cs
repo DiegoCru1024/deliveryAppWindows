@@ -10,30 +10,31 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace deliveryApp
 {
-    public partial class loginForm : Form
+    internal partial class loginForm : Form
     {
         string loginApiURL = "https://6371572b07858778617b1464.mockapi.io/deliveryAPI/deliveryLoginAccess";
         List<loadLoginApi> loginList = new List<loadLoginApi>();
         loadLoginApi userData;
 
-        public loginForm()
+        internal loginForm()
         {
             InitializeComponent();
             deserializeAPI();
             formatLogin();
         }
 
-        public async void deserializeAPI()
+        private async void deserializeAPI()
         {
             string apiResponse = await getAPI();
             loginList = JsonConvert.DeserializeObject<List<loadLoginApi>>(apiResponse);
         }
 
-        public async Task<string> getAPI()
+        private async Task<string> getAPI()
         {
             HttpClient myClient = new HttpClient(new HttpClientHandler() { UseDefaultCredentials = true });
             HttpResponseMessage response = await myClient.GetAsync(loginApiURL);
@@ -103,6 +104,11 @@ namespace deliveryApp
             IntPtr Hicon = myBitmap.GetHicon();
             Icon newIcon = Icon.FromHandle(Hicon);
             this.Icon = newIcon;
+        }
+
+        private void loginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
