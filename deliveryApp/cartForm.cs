@@ -16,6 +16,9 @@ namespace deliveryApp
         List<itemClass> shoppingCartList;
         loginClass userData;
 
+        int productCount = 0;
+        double totalPrice = 0;
+
         public cartForm(appForm mainForm,List<itemClass> receivedData, loginClass receivedUser)
         {
             this.mainForm = mainForm;
@@ -32,6 +35,52 @@ namespace deliveryApp
 
         internal void cartRefresh(List<itemClass> receivedData)
         {
+            foreach(itemClass itemClass in receivedData)
+            {
+                productCount++;
+                totalPrice += Double.Parse(itemClass.price.ToString());
+
+                Panel panel = new Panel();
+                panel.Width = cartContainer.Width;
+                panel.Height = 250;
+                panel.BackColor = Color.Gray;
+                panel.Margin = new Padding(20);
+
+                Panel textPanel = new Panel();
+                textPanel.Height = 250;
+                textPanel.Dock = DockStyle.Left;
+                panel.Controls.Add(textPanel);
+
+                PictureBox image = new PictureBox();
+                image.BackgroundImage = Properties.Resources.imgTest;
+                image.BackgroundImageLayout = ImageLayout.Zoom;
+                image.Dock = DockStyle.Left;
+                image.Height = 250;
+                image.Width = 250;
+                panel.Controls.Add(image);
+
+                Label productPrice = new Label();
+                productPrice.Text = "Precio: " + itemClass.price;
+                productPrice.Font = new Font("Tahoma", 16);
+                productPrice.Padding = new Padding(20, 20, 0, 0);
+                productPrice.Height = 50;
+                productPrice.Dock = DockStyle.Top;
+                textPanel.Controls.Add(productPrice);
+
+                Label productName = new Label();
+                productName.Text = itemClass.name;
+                productName.Font = new Font("Tahoma", 20, FontStyle.Bold);
+                productName.Padding = new Padding(20, 20, 0, 0);
+                productName.Height = 50;
+                productName.Width = 350;
+                productName.Dock = DockStyle.Top;
+                textPanel.Controls.Add(productName);
+
+                cartContainer.Controls.Add(panel);
+            }
+
+            lbl_count.Text = productCount + " productos";
+            lbl_price.Text = "S/. " + totalPrice;
         }
 
         private void formatWindow()
@@ -88,6 +137,21 @@ namespace deliveryApp
                 txt_email.Enabled = true;
                 button1.Text = "Guardar datos";
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
