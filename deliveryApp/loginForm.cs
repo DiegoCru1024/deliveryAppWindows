@@ -18,8 +18,8 @@ namespace deliveryApp
     internal partial class loginForm : Form
     {
         string loginApiURL = "https://6371572b07858778617b1464.mockapi.io/deliveryAPI/deliveryLoginAccess";
-        List<loadLoginApi> loginList = new List<loadLoginApi>();
-        loadLoginApi userData;
+        List<loginClass> loginList = new List<loginClass>();
+        loginClass userData;
 
         internal loginForm()
         {
@@ -31,7 +31,7 @@ namespace deliveryApp
         private async void deserializeAPI()
         {
             string apiResponse = await getAPI();
-            loginList = JsonConvert.DeserializeObject<List<loadLoginApi>>(apiResponse);
+            loginList = JsonConvert.DeserializeObject<List<loginClass>>(apiResponse);
         }
 
         private async Task<string> getAPI()
@@ -58,7 +58,7 @@ namespace deliveryApp
             apiUser = string.Empty;
             apiPass = string.Empty;
 
-            foreach (loadLoginApi login in loginList)
+            foreach (loginClass login in loginList)
             {
                 if (formUser.ToLower().Equals(login.username.ToLower()))
                 {

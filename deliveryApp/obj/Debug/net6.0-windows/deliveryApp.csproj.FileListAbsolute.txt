@@ -20,3 +20,5 @@ C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\delivery
 C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\deliveryApp.appForm.resources
 C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\deliveryApp.Properties.Resources.resources
 C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\deliveryApp.cartForm.resources
+C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\deliveryApp.supportForm.resources
+C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\deliveryApp.pucharsesForm.resources

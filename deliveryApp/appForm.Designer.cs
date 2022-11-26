@@ -101,6 +101,19 @@ namespace deliveryApp
             treeNode34,
             treeNode35,
             treeNode36});
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Falabella");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Oechsle");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Plaza Vea");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Ripley");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Topitop");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Tottus");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Tienda", new System.Windows.Forms.TreeNode[] {
+            treeNode38,
+            treeNode39,
+            treeNode40,
+            treeNode41,
+            treeNode42,
+            treeNode43});
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -112,6 +125,9 @@ namespace deliveryApp
             this.btn_resetFilter = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.itemContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -119,6 +135,7 @@ namespace deliveryApp
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.sidePanel.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -146,6 +163,7 @@ namespace deliveryApp
             this.pictureBox3.Size = new System.Drawing.Size(50, 50);
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox2
             // 
@@ -294,10 +312,26 @@ namespace deliveryApp
             treeNode37.Name = "Nodo31";
             treeNode37.Tag = "price";
             treeNode37.Text = "Precio";
+            treeNode38.Name = "Nodo38";
+            treeNode38.Text = "Falabella";
+            treeNode39.Name = "Nodo39";
+            treeNode39.Text = "Oechsle";
+            treeNode40.Name = "Nodo40";
+            treeNode40.Text = "Plaza Vea";
+            treeNode41.Name = "Nodo41";
+            treeNode41.Text = "Ripley";
+            treeNode42.Name = "Nodo42";
+            treeNode42.Text = "Topitop";
+            treeNode43.Name = "Nodo43";
+            treeNode43.Text = "Tottus";
+            treeNode44.Name = "Nodo37";
+            treeNode44.Tag = "store";
+            treeNode44.Text = "Tienda";
             this.filterTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode10,
             treeNode31,
-            treeNode37});
+            treeNode37,
+            treeNode44});
             this.filterTree.ShowPlusMinus = false;
             this.filterTree.ShowRootLines = false;
             this.filterTree.Size = new System.Drawing.Size(240, 447);
@@ -309,6 +343,7 @@ namespace deliveryApp
             this.btn_resetFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.btn_resetFilter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_resetFilter.FlatAppearance.BorderSize = 0;
+            this.btn_resetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_resetFilter.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_resetFilter.ForeColor = System.Drawing.Color.White;
             this.btn_resetFilter.Location = new System.Drawing.Point(5, 477);
@@ -317,7 +352,7 @@ namespace deliveryApp
             this.btn_resetFilter.TabIndex = 2;
             this.btn_resetFilter.Text = "Borrar Filtros";
             this.btn_resetFilter.UseVisualStyleBackColor = false;
-            this.btn_resetFilter.Click += new System.EventHandler(this.resetFilter);
+            this.btn_resetFilter.Click += new System.EventHandler(this.resetFilterButton);
             // 
             // label1
             // 
@@ -335,10 +370,62 @@ namespace deliveryApp
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Location = new System.Drawing.Point(285, 113);
+            this.panel2.Margin = new System.Windows.Forms.Padding(10);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(865, 150);
+            this.panel2.Padding = new System.Windows.Forms.Padding(10);
+            this.panel2.Size = new System.Drawing.Size(865, 50);
             this.panel2.TabIndex = 3;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(705, 10);
+            this.button3.Margin = new System.Windows.Forms.Padding(0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(150, 30);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Asistencia";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(188, 10);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 30);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Ofertas";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(10, 10);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 30);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Mis Compras";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // itemContainer
             // 
@@ -347,10 +434,10 @@ namespace deliveryApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.itemContainer.AutoScroll = true;
             this.itemContainer.BackColor = System.Drawing.Color.Silver;
-            this.itemContainer.Location = new System.Drawing.Point(285, 276);
+            this.itemContainer.Location = new System.Drawing.Point(285, 183);
             this.itemContainer.Margin = new System.Windows.Forms.Padding(10);
             this.itemContainer.Name = "itemContainer";
-            this.itemContainer.Size = new System.Drawing.Size(865, 349);
+            this.itemContainer.Size = new System.Drawing.Size(865, 442);
             this.itemContainer.TabIndex = 4;
             // 
             // appForm
@@ -373,6 +460,7 @@ namespace deliveryApp
             this.sidePanel.ResumeLayout(false);
             this.sidePanel.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,5 +480,8 @@ namespace deliveryApp
         private TreeView filterTree;
         private FlowLayoutPanel itemContainer;
         private PictureBox pictureBox3;
+        private Button button1;
+        private Button button3;
+        private Button button2;
     }
 }

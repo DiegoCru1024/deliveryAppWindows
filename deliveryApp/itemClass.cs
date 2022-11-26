@@ -6,19 +6,13 @@ using System.Threading.Tasks;
 
 namespace deliveryApp
 {
-    public class ItemClass
+    public class itemClass
     {
-        private int itemID;
-        private string itemName;
-        private float itemPrice;
-        private string itemStore;
-
-        public void createItem(int ID, string Name, float Price, string Store)
-        {
-            this.itemID = ID;
-            this.itemName = Name;
-            this.itemPrice = Price;
-            this.itemStore = Store;
-        }
+        public string? id { get; set; }
+        public string? name { get; set; }
+        public double price { get; set; }
+        public string? brand { get; set; }
+        public string? category { get; set; }
+        public string? store { get; set; }
     }
 }

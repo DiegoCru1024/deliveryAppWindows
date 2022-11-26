@@ -22,17 +22,23 @@ namespace deliveryApp
         string itemApiURL = "https://6371572b07858778617b1464.mockapi.io/deliveryAPI/itemList";
 
         //Contenedores de Datos
-        List<loadItemAPI> itemList = new List<loadItemAPI>();
-        List<loadItemAPI> filteredItemList = new List<loadItemAPI>();
-        List<loadItemAPI> shoppingCart = new List<loadItemAPI>();
-        loadLoginApi userData;
+        List<itemClass> itemList = new List<itemClass>();
+        List<itemClass> filteredItemList = new List<itemClass>();
+        List<itemClass> shoppingCart = new List<itemClass>();
+        loginClass userData;
 
         //Filtros
         string categoryFilter = string.Empty;
         string brandFilter = string.Empty;
+        string storeFilter = string.Empty;
         string priceFilter = string.Empty;
 
-        internal appForm(loadLoginApi receivedData)
+        //Formulario
+        cartForm cartFormCall;
+        supportForm supportFormCall;
+        pucharsesForm pucharsesFormCall;
+
+        internal appForm(loginClass receivedData)
         {
             InitializeComponent();
             deserializeAPI();
@@ -48,9 +54,9 @@ namespace deliveryApp
         private async void deserializeAPI()
         {
             string apiResponse = await getAPI();
-            itemList = JsonConvert.DeserializeObject<List<loadItemAPI>>(apiResponse);
+            itemList = JsonConvert.DeserializeObject<List<itemClass>>(apiResponse);
             filteredItemList = itemList;
-            showItems(filteredItemList);
+            showItems(itemList);
         }
 
         private async Task<string> getAPI()
@@ -83,11 +89,12 @@ namespace deliveryApp
 
         private void filterTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            string selectedNodeTag = e.Node.Tag.ToString().ToLower();
-            string selectedNode = e.Node.Text;
-
             if (e.Node.Parent != null)
             {
+                resetFilters();
+                string selectedNodeTag = e.Node.Parent.Tag.ToString().ToLower();
+                string selectedNode = e.Node.Text.ToLower();
+
                 if (selectedNodeTag == "category")
                 {
                     categoryFilter = selectedNode;
@@ -95,6 +102,10 @@ namespace deliveryApp
                 if (selectedNodeTag == "brand")
                 {
                     brandFilter = selectedNode;
+                }
+                if (selectedNodeTag == "store")
+                {
+                    storeFilter = selectedNode;
                 }
                 if (selectedNodeTag == "price")
                 {
@@ -105,58 +116,66 @@ namespace deliveryApp
             }
         }
 
-        private void resetFilter(object sender, EventArgs e)
+        private void resetFilterButton(object sender, EventArgs e)
         {
             filterTree.SelectedNode = null;
             categoryFilter = string.Empty; 
             brandFilter = string.Empty; 
+            storeFilter = string.Empty;
             priceFilter = string.Empty;
+            resetFilters();
+        }
 
-            filteredItemList = itemList;
-            showItems(filteredItemList);
+        public void resetFilters()
+        {
+            foreach(Panel p in itemContainer.Controls)
+            {
+                p.Visible = true;
+            }
         }
 
         private void filterItems()
         {
-            //se filtran los items en filtereditemlist
-
-
-
-            showItems(filteredItemList);
-        }
-
-        private void onPanelEnter(object sender, EventArgs e)
-        {
-            PictureBox picBox = (PictureBox)sender;
-            Panel p = (Panel)picBox.Parent;
-
-            foreach (Control control in p.Controls)
+            foreach (Panel p in itemContainer.Controls)
             {
-                if (control is Button)
+                int id = int.Parse(p.Tag.ToString());
+                itemClass item = itemList[id-1];
+
+                if (item.category != categoryFilter && categoryFilter != string.Empty)
                 {
-                    control.Visible = true;
+                    p.Visible = false;
+                }
+                if (item.brand != brandFilter && brandFilter != string.Empty)
+                {
+                    p.Visible = false;
+                }
+                if (item.store != storeFilter && storeFilter != string.Empty)
+                {
+                    p.Visible = false;
                 }
             }
         }
 
-        private void onPanelExit(object sender, EventArgs e)
+        private void addToCart(object sender, EventArgs e)
         {
-            PictureBox picBox = (PictureBox)sender;
-            Panel p = (Panel)picBox.Parent;
+            Button button = (Button)sender;
+            Panel panel = (Panel)button.Parent;
+            string itemID = panel.Tag.ToString();
 
-            foreach (Control control in p.Controls)
+            foreach (itemClass item in itemList)
             {
-                if (control is Button)
+                if (item.id == itemID)
                 {
-                    control.Visible = false;
+                    shoppingCart.Add(item);
                 }
             }
         }
 
-        private void showItems(List<loadItemAPI> itemsToShow)
+        private void showItems(List<itemClass> itemsToShow)
         {
-            int contador = 1;
-            foreach(loadItemAPI item in itemsToShow)
+            itemContainer.Controls.Clear();
+
+            foreach(itemClass item in itemsToShow)
             {
                 //Panel design
                 Panel itemPanel = new Panel();
@@ -164,12 +183,25 @@ namespace deliveryApp
                 itemPanel.Height = 400;
                 itemPanel.BackColor = Color.Gray;
                 itemPanel.Margin = new Padding(10);
-                itemPanel.Name = "Panel" + contador;
+                itemPanel.Name = "Panel" + item.id;
+                itemPanel.Tag = item.id;
+
+                Button itemButton = new Button();
+                itemButton.Text = "Añadir al carrito";
+                itemButton.Click += new EventHandler(addToCart);
+                itemButton.Height = 25;
+                itemButton.ForeColor = Color.White;
+                itemButton.BackColor = Color.FromArgb(255, 80, 80);
+                itemButton.TextAlign = ContentAlignment.MiddleCenter;
+                itemButton.Font = new Font("Tahoma", 12, FontStyle.Bold);
+                itemButton.Dock = DockStyle.Top;
+                itemButton.FlatStyle = FlatStyle.Flat;
+                itemButton.FlatAppearance.BorderSize = 0;
+                itemPanel.Controls.Add(itemButton);
 
                 Label itemPrice = new Label();
                 itemPrice.Text = "S/. " + item.price;
-                itemPrice.ForeColor = Color.White;
-                itemPrice.BackColor = Color.FromArgb(255, 80, 80);
+                itemPrice.ForeColor = Color.Black;
                 itemPrice.TextAlign = ContentAlignment.MiddleCenter;
                 itemPrice.Height = 25;
                 itemPrice.Font = new Font("Tahoma", 12);
@@ -178,8 +210,7 @@ namespace deliveryApp
 
                 Label itemName = new Label();
                 itemName.Text = item.name;
-                itemName.ForeColor = Color.White;
-                itemName.BackColor = Color.FromArgb(255, 80, 80);
+                itemName.ForeColor = Color.Black;
                 itemName.Font = new Font("Tahoma", 12, FontStyle.Bold);
                 itemName.TextAlign = ContentAlignment.MiddleCenter;
                 itemName.Height = 25;
@@ -189,23 +220,41 @@ namespace deliveryApp
                 PictureBox itemImage = new PictureBox();
                 itemImage.Image = Properties.Resources.imgTest;
                 itemImage.SizeMode = PictureBoxSizeMode.StretchImage;
-                itemImage.Height = 350;
+                itemImage.Height = 325;
                 itemImage.Dock = DockStyle.Top;
-                itemImage.MouseEnter += new EventHandler(onPanelEnter);
-                itemImage.MouseLeave += new EventHandler(onPanelExit);
                 itemPanel.Controls.Add(itemImage);
 
-                Button itemAdd = new Button();
-                itemAdd.Text = "Añadir";
-                itemAdd.Height = 25;
-                itemAdd.Dock = DockStyle.Top;
-                itemAdd.Visible = false;
-                itemPanel.Controls.Add(itemAdd);
-
-
-                
                 itemContainer.Controls.Add(itemPanel);
-                contador++;
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (cartFormCall == null || cartFormCall.IsDisposed)
+            {
+                cartFormCall = new cartForm(this, shoppingCart, userData);
+                cartFormCall.Visible = true;
+                this.Visible = false;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (supportFormCall == null || supportFormCall.IsDisposed)
+            {
+                supportFormCall = new supportForm(this, userData);
+                supportFormCall.Visible = true;
+                this.Visible = false;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (pucharsesFormCall == null || pucharsesFormCall.IsDisposed)
+            {
+                pucharsesFormCall = new pucharsesForm(this, userData);
+                pucharsesFormCall.Visible = true;
+                this.Visible = false;
             }
         }
     }
