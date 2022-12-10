@@ -12,7 +12,11 @@ namespace deliveryApp
 {
     public partial class supportForm : Form
     {
+        //Formularios
         appForm mainForm;
+        complaintForm complaintForm;
+        refundForm refundForm;
+
         loginClass userData;
 
         public supportForm(appForm mainForm, loginClass userData)
@@ -52,6 +56,26 @@ namespace deliveryApp
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            if (refundForm == null || refundForm.IsDisposed)
+            {
+                refundForm = new refundForm(this, userData);
+                refundForm.Visible = true;
+                this.Visible = false;
+            }
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            if (complaintForm == null || complaintForm.IsDisposed)
+            {
+                complaintForm = new complaintForm(this, userData);
+                complaintForm.Visible = true;
+                this.Visible = false;
+            }
         }
     }
 }

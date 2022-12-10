@@ -35,6 +35,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbl_welcome = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button19 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -59,6 +60,8 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button20 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -68,6 +71,7 @@
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -153,6 +157,22 @@
             this.pictureBox1.Size = new System.Drawing.Size(72, 72);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // button19
+            // 
+            this.button19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.button19.FlatAppearance.BorderSize = 0;
+            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button19.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button19.ForeColor = System.Drawing.Color.White;
+            this.button19.Location = new System.Drawing.Point(20, 10);
+            this.button19.Margin = new System.Windows.Forms.Padding(10);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(250, 30);
+            this.button19.TabIndex = 15;
+            this.button19.Text = "Devolución de Productos";
+            this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // panel2
             // 
@@ -339,10 +359,10 @@
             this.panel3.Controls.Add(this.button16);
             this.panel3.Controls.Add(this.button15);
             this.panel3.Controls.Add(this.button14);
-            this.panel3.Location = new System.Drawing.Point(339, 120);
+            this.panel3.Location = new System.Drawing.Point(336, 183);
             this.panel3.Margin = new System.Windows.Forms.Padding(10);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1249, 604);
+            this.panel3.Size = new System.Drawing.Size(1248, 537);
             this.panel3.TabIndex = 4;
             // 
             // label3
@@ -370,7 +390,7 @@
             this.button18.Margin = new System.Windows.Forms.Padding(20);
             this.button18.Name = "button18";
             this.button18.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button18.Size = new System.Drawing.Size(831, 50);
+            this.button18.Size = new System.Drawing.Size(830, 50);
             this.button18.TabIndex = 18;
             this.button18.Text = "Tengo otro problema relacionado con COMPRAS.";
             this.button18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -389,7 +409,7 @@
             this.button17.Margin = new System.Windows.Forms.Padding(20);
             this.button17.Name = "button17";
             this.button17.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button17.Size = new System.Drawing.Size(831, 50);
+            this.button17.Size = new System.Drawing.Size(830, 50);
             this.button17.TabIndex = 17;
             this.button17.Text = "Mi compra ha sido cancelada pero he recibido el cobro de los productos.";
             this.button17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -408,7 +428,7 @@
             this.button16.Margin = new System.Windows.Forms.Padding(20);
             this.button16.Name = "button16";
             this.button16.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button16.Size = new System.Drawing.Size(831, 50);
+            this.button16.Size = new System.Drawing.Size(830, 50);
             this.button16.TabIndex = 16;
             this.button16.Text = "Aún no he recibido los datos o confirmación de mi compra realizada.";
             this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -427,7 +447,7 @@
             this.button15.Margin = new System.Windows.Forms.Padding(20);
             this.button15.Name = "button15";
             this.button15.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button15.Size = new System.Drawing.Size(831, 50);
+            this.button15.Size = new System.Drawing.Size(830, 50);
             this.button15.TabIndex = 15;
             this.button15.Text = "Tengo problemas al momento de realizar pagos desde el carrito de compras.";
             this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -446,7 +466,7 @@
             this.button14.Margin = new System.Windows.Forms.Padding(20);
             this.button14.Name = "button14";
             this.button14.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button14.Size = new System.Drawing.Size(831, 50);
+            this.button14.Size = new System.Drawing.Size(830, 50);
             this.button14.TabIndex = 14;
             this.button14.Text = "Tengo problemas al momento de realizar compras desde mi cuenta.";
             this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -524,11 +544,40 @@
             this.button10.Text = "Correo Electronico";
             this.button10.UseVisualStyleBackColor = false;
             // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.BackColor = System.Drawing.Color.Silver;
+            this.panel5.Controls.Add(this.button20);
+            this.panel5.Controls.Add(this.button19);
+            this.panel5.Location = new System.Drawing.Point(336, 120);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1248, 50);
+            this.panel5.TabIndex = 6;
+            // 
+            // button20
+            // 
+            this.button20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.button20.FlatAppearance.BorderSize = 0;
+            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button20.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button20.ForeColor = System.Drawing.Color.White;
+            this.button20.Location = new System.Drawing.Point(290, 10);
+            this.button20.Margin = new System.Windows.Forms.Padding(10);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(250, 30);
+            this.button20.TabIndex = 16;
+            this.button20.Text = "Libro de Reclamaciones";
+            this.button20.UseVisualStyleBackColor = false;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
             // supportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1607, 913);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -548,6 +597,7 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -585,5 +635,8 @@
         private Button button15;
         private Button button14;
         private Label label3;
+        private Button button19;
+        private Panel panel5;
+        private Button button20;
     }
 }
