@@ -10,23 +10,19 @@ using System.Windows.Forms;
 
 namespace deliveryApp
 {
-    public partial class supportForm : Form
+    public partial class complaintForm : Form
     {
-        //Formularios
-        appForm mainForm;
-        complaintForm complaintForm;
-        refundForm refundForm;
-
+        supportForm supportForm;
         loginClass userData;
 
-        public supportForm(appForm mainForm, loginClass userData)
+        public complaintForm(supportForm supportForm, loginClass userData)
         {
-            this.mainForm = mainForm;
+            this.supportForm = supportForm;
             this.userData = userData;
+
             InitializeComponent();
             formatWindow();
         }
-
         private void formatWindow()
         {
             //Window properties
@@ -47,35 +43,32 @@ namespace deliveryApp
 
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
+        private void pictureBox4_Click(object sender, EventArgs e)
         {
-            mainForm.Visible = true;
+            supportForm.Visible = true;
             this.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-            if (refundForm == null || refundForm.IsDisposed)
-            {
-                refundForm = new refundForm(this, userData);
-                refundForm.Visible = true;
-                this.Visible = false;
-            }
-        }
-
-        private void button20_Click(object sender, EventArgs e)
-        {
-            if (complaintForm == null || complaintForm.IsDisposed)
-            {
-                complaintForm = new complaintForm(this, userData);
-                complaintForm.Visible = true;
-                this.Visible = false;
-            }
+            MessageBox.Show("Su reclamo ha sido enviado...", "Confirmacion");
+            supportForm.Visible = true;
+            this.Close();
         }
     }
 }

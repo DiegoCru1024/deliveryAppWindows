@@ -22,3 +22,8 @@ C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\delivery
 C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\deliveryApp.cartForm.resources
 C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\deliveryApp.supportForm.resources
 C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\deliveryApp.pucharsesForm.resources
+C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\deliveryApp.payForm.resources
+C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\deliveryApp.complaintForm.resources
+C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\deliveryApp.refundForm.resources
+C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\deliveryApp.confirmationForm.resources
+C:\Users\Diego\Desktop\deliveryApp\deliveryApp\obj\Debug\net6.0-windows\deliveryApp.surveyForm.resources

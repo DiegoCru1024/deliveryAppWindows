@@ -63,6 +63,46 @@ namespace deliveryApp.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _211635_card_icon {
+            get {
+                object obj = ResourceManager.GetObject("_211635_card_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _352067_phone_icon {
+            get {
+                object obj = ResourceManager.GetObject("_352067_phone_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8546928_cc_paypal_icon {
+            get {
+                object obj = ResourceManager.GetObject("_8546928_cc_paypal_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _9055104_bxs_bank_icon {
+            get {
+                object obj = ResourceManager.GetObject("_9055104_bxs_bank_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap back {
             get {
                 object obj = ResourceManager.GetObject("back", resourceCulture);

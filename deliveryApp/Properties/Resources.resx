@@ -136,4 +136,16 @@
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="_211635_card_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\211635_card_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_352067_phone_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\352067_phone_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_8546928_cc_paypal_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\8546928_cc_paypal_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_9055104_bxs_bank_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9055104_bxs_bank_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

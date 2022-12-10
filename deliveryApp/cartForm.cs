@@ -15,9 +15,10 @@ namespace deliveryApp
         appForm mainForm;
         List<itemClass> shoppingCartList;
         loginClass userData;
+        payForm payForm;
 
         int productCount = 0;
-        double totalPrice = 0;
+        double totalPrice = 0, finalPrice = 0;
 
         public cartForm(appForm mainForm,List<itemClass> receivedData, loginClass receivedUser)
         {
@@ -80,7 +81,18 @@ namespace deliveryApp
             }
 
             lbl_count.Text = productCount + " productos";
-            lbl_price.Text = "S/. " + totalPrice;
+            lbl_price.Text = "S/. " + Math.Round(totalPrice, 2);
+            if (totalPrice >= 250)
+            {
+                lbl_envio.Text = "S/. 0,00";
+                finalPrice = Math.Round(totalPrice, 2);
+                lbl_finalprice.Text = "S/. " + finalPrice;
+            } else
+            {
+                lbl_envio.Text = "S/. " + Math.Round(productCount * 2.50, 2);
+                finalPrice = Math.Round(totalPrice + productCount * 2.50, 2);
+                lbl_finalprice.Text = "S/. " + finalPrice;
+            }
         }
 
         private void formatWindow()
@@ -152,6 +164,26 @@ namespace deliveryApp
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_price_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (payForm == null || payForm.IsDisposed)
+            {
+                payForm = new payForm(mainForm, this, finalPrice);
+                payForm.Visible = true;
+                this.Visible = false;
+            }
         }
     }
 }

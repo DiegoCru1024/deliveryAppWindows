@@ -10,21 +10,17 @@ using System.Windows.Forms;
 
 namespace deliveryApp
 {
-    public partial class supportForm : Form
+    public partial class refundForm : Form
     {
-        //Formularios
-        appForm mainForm;
-        complaintForm complaintForm;
-        refundForm refundForm;
-
+        supportForm supportForm;
         loginClass userData;
-
-        public supportForm(appForm mainForm, loginClass userData)
+        public refundForm(supportForm supportForm, loginClass userData)
         {
-            this.mainForm = mainForm;
+            this.supportForm = supportForm;
             this.userData = userData;
             InitializeComponent();
             formatWindow();
+            cargarDatos();
         }
 
         private void formatWindow()
@@ -42,40 +38,47 @@ namespace deliveryApp
             this.Icon = newIcon;
         }
 
-        private void lbl_welcome_Click(object sender, EventArgs e)
-        {
+        public void cargarDatos() {
+            txt_nombre.Text = userData.firstName;
+            txt_apellido.Text = userData.lastName;
+            txt_correo.Text = userData.email;
+            txt_telefono.Text = userData.phone;
 
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            mainForm.Visible = true;
+            supportForm.Visible = true;
             this.Close();
         }
+            
+        private void label2_Click(object sender, EventArgs e)
+        {
 
-        private void label1_Click(object sender, EventArgs e)
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-            if (refundForm == null || refundForm.IsDisposed)
-            {
-                refundForm = new refundForm(this, userData);
-                refundForm.Visible = true;
-                this.Visible = false;
-            }
-        }
-
-        private void button20_Click(object sender, EventArgs e)
-        {
-            if (complaintForm == null || complaintForm.IsDisposed)
-            {
-                complaintForm = new complaintForm(this, userData);
-                complaintForm.Visible = true;
-                this.Visible = false;
-            }
+            MessageBox.Show("Su solicitud ha sido enviada...", "Confirmacion");
+            supportForm.Visible = true;
+            this.Close();
         }
     }
+
+
 }

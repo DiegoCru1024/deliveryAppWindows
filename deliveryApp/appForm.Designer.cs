@@ -149,7 +149,7 @@ namespace deliveryApp
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1165, 100);
+            this.panel1.Size = new System.Drawing.Size(1600, 100);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox3
@@ -157,7 +157,7 @@ namespace deliveryApp
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox3.BackgroundImage = global::deliveryApp.Properties.Resources.cart;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(1022, 25);
+            this.pictureBox3.Location = new System.Drawing.Point(1457, 25);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(25);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(50, 50);
@@ -170,7 +170,7 @@ namespace deliveryApp
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox2.BackgroundImage = global::deliveryApp.Properties.Resources.cross;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(1100, 25);
+            this.pictureBox2.Location = new System.Drawing.Point(1535, 25);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 50);
             this.pictureBox2.TabIndex = 1;
@@ -377,7 +377,7 @@ namespace deliveryApp
             this.panel2.Margin = new System.Windows.Forms.Padding(10);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.panel2.Size = new System.Drawing.Size(865, 50);
+            this.panel2.Size = new System.Drawing.Size(1300, 50);
             this.panel2.TabIndex = 3;
             // 
             // button3
@@ -388,7 +388,7 @@ namespace deliveryApp
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(705, 10);
+            this.button3.Location = new System.Drawing.Point(1140, 10);
             this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(150, 30);
@@ -408,7 +408,7 @@ namespace deliveryApp
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(150, 30);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Ofertas";
+            this.button2.Text = "Liquidación";
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button1
@@ -437,14 +437,14 @@ namespace deliveryApp
             this.itemContainer.Location = new System.Drawing.Point(285, 183);
             this.itemContainer.Margin = new System.Windows.Forms.Padding(10);
             this.itemContainer.Name = "itemContainer";
-            this.itemContainer.Size = new System.Drawing.Size(865, 442);
+            this.itemContainer.Size = new System.Drawing.Size(1300, 442);
             this.itemContainer.TabIndex = 4;
             // 
             // appForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1165, 637);
+            this.ClientSize = new System.Drawing.Size(1600, 637);
             this.Controls.Add(this.itemContainer);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.sidePanel);
