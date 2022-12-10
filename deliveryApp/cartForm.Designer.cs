@@ -36,6 +36,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_finalprice = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lbl_envio = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -156,6 +160,10 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.lbl_finalprice);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.lbl_envio);
+            this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label8);
@@ -169,6 +177,55 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(20);
             this.panel2.Size = new System.Drawing.Size(417, 629);
             this.panel2.TabIndex = 1;
+            // 
+            // lbl_finalprice
+            // 
+            this.lbl_finalprice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_finalprice.AutoSize = true;
+            this.lbl_finalprice.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_finalprice.Location = new System.Drawing.Point(23, 299);
+            this.lbl_finalprice.Name = "lbl_finalprice";
+            this.lbl_finalprice.Size = new System.Drawing.Size(84, 19);
+            this.lbl_finalprice.TabIndex = 12;
+            this.lbl_finalprice.Text = "S/. 100.00";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(23, 280);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(133, 19);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Precio a pagar:";
+            // 
+            // lbl_envio
+            // 
+            this.lbl_envio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_envio.AutoSize = true;
+            this.lbl_envio.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_envio.Location = new System.Drawing.Point(23, 249);
+            this.lbl_envio.Name = "lbl_envio";
+            this.lbl_envio.Size = new System.Drawing.Size(84, 19);
+            this.lbl_envio.TabIndex = 10;
+            this.lbl_envio.Text = "S/. 100.00";
+            this.lbl_envio.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(23, 230);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(110, 19);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Costo envio:";
             // 
             // button3
             // 
@@ -214,11 +271,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_price.AutoSize = true;
             this.lbl_price.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_price.Location = new System.Drawing.Point(23, 200);
+            this.lbl_price.Location = new System.Drawing.Point(23, 194);
             this.lbl_price.Name = "lbl_price";
             this.lbl_price.Size = new System.Drawing.Size(84, 19);
             this.lbl_price.TabIndex = 5;
             this.lbl_price.Text = "S/. 100.00";
+            this.lbl_price.Click += new System.EventHandler(this.lbl_price_Click);
             // 
             // label10
             // 
@@ -228,9 +286,9 @@
             this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.Location = new System.Drawing.Point(23, 175);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(114, 19);
+            this.label10.Size = new System.Drawing.Size(151, 19);
             this.label10.TabIndex = 4;
-            this.label10.Text = "Precio Total:";
+            this.label10.Text = "Precio productos:";
             // 
             // lbl_count
             // 
@@ -282,6 +340,7 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "Continuar con el pago";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel4
             // 
@@ -479,5 +538,9 @@
         private TextBox textBox1;
         private Label label8;
         private Button button3;
+        private Label lbl_envio;
+        private Label label11;
+        private Label lbl_finalprice;
+        private Label label12;
     }
 }
